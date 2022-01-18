@@ -26,9 +26,16 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-  var array1 = array.map((elemento) => elemento + 1)
-  return array1;
+  // var array1 = array.map((elemento) => elemento + 1)
+  // return array1; (esta es una manera)
+  // la otra explicada por A:
 
+  var nuevoArray = [];
+
+  for(var i = 0; i < array.length; i++ ){
+    nuevoArray.push(array[i] + 1)
+  }
+  return nuevoArray;
 }
 
 
@@ -65,7 +72,7 @@ function dePalabrasAFrase(palabras) {
   //}
   //return false;
   //}
-   return palabras.join(" ");
+  return palabras.join(" "); // join toma un array y devuelve un string;
 }
 
 
@@ -73,7 +80,15 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  return array.includes(elemento);
+  // forma de resolver 1:
+  //return array.includes(elemento); // include permite buscar si un elemento esta incluido en el array;
+  // la otra forma segun A, para resolver es:
+
+  for (var i = 0; i < array.length; i++){
+    if(array[i]=== elemento)
+    return true;
+  }
+ return false;
 }
 
 
@@ -82,9 +97,9 @@ function agregarNumeros(numeros) {
   // Suma todos los enteros y devuelve el valor
   // Tu código:
 
-  var suma = 0;
+  var suma = 0; // esta es una variable auxiliar donde vamos a ir sumando todos los elementos de "numeros" que recibamos por argumento.
   for (var i = 0; i < numeros.length; i++){
-    suma = suma + numeros[i];
+    suma = suma + numeros[i]; // aqui a suma la vamos modificando y quiero que sea igual a suma mas numeros [i]
   }
   return suma;
 
@@ -95,7 +110,7 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-
+  //
   var suma = 0;
   var promedio = 0;
   for (var i = 0; i < resultadosTest.length; i++){
@@ -114,10 +129,10 @@ function numeroMasGrande(numeros) {
   // Devuelve el número más grande
   // Tu código:
   
-  var mayor = 0;
+  var mayor = 0; //variable auxiliar que inicia en 0.
   for (var index = 0; index < numeros.length; index ++){
-     if(numeros[index] > mayor){
-       mayor = numeros[index]
+     if(numeros[index] > mayor){  //si numeros i es mayor que mayor, entonces
+       mayor = numeros[index]  // numeros i pasa a ser mayor y se sale del for y se retorna mayor.
      }
   }
   return mayor;
