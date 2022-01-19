@@ -143,12 +143,30 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+  
+  var total = 1;                         // es importante que se coloque el numero 1, para multiplicar, ya que cero por cualquier num es cero.
+  if (arguments.length < 1){            //  la palabra clave "arguments" permite acceder a los argumentos.
+    return 0;
+  }
+  for(var i = 0; i < arguments.length; i++){
+    total = total * arguments[i];
+  }
+   return total;
 }
 
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
+
+  var mayorQue18 = 0;
+  for(var i = 0; i < arreglo.length; i++){
+    if(arreglo[i] > 18){
+      mayorQue18 = mayorQue18 + 1     // ver por que pone mas 1
+    }
+  }
+  return mayorQue18;
+
 
 }
 
@@ -157,8 +175,20 @@ function diaDeLaSemana(numeroDeDia) {
   //Suponga que los días de la semana se codifican como 1 = Domingo, 2 = Lunes y así sucesivamente. 
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
-  //Escribe tu código aquí   
+  //Escribe tu código aquí 
   
+  var Domingo = 1;
+  var Lunes = 2;
+  var Martes = 3;
+  var Miercoles = 4;
+  var Jueves = 5;
+  var Viernes = 6;
+  var Sabado = 7;
+  
+  if(numeroDeDia === 1 || numeroDeDia === 7){
+    return "Es fin de semana";
+  }
+  return "Es dia Laboral";
 } 
 
 
@@ -166,7 +196,8 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  
+
+
 }
 
 
