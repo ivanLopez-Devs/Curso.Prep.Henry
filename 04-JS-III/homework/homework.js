@@ -196,8 +196,12 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-
-
+  
+  
+  if( n = parseInt(String(n)[0]) === 9){           // con String(n)[0] convierto n a una cadena de caracteres y accedo a la primera posicion [0]
+    return true;                                   // con parseInt convierto nuevamente n a entero.
+  }
+  return false;
 }
 
 
@@ -205,7 +209,17 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí  
-  
+  // var iguales = arreglo[0];
+  // for (var i = 0; i < arreglo.length; i++ ){
+  //   if(iguales !== arreglo[i])
+  //   return false;
+  // }
+  // return true;
+  for (var i = 0; i < arreglo.length; i++ ){
+      if(arreglo[0] !== arreglo[i])
+      return false;
+    }
+    return true;
 } 
 
 
@@ -214,6 +228,7 @@ function mesesDelAño(array) {
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
+  
 }
 
 
