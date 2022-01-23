@@ -100,7 +100,7 @@ function agregarNumeros(numeros) {
   var suma = 0; // esta es una variable auxiliar donde vamos a ir sumando todos los elementos de "numeros" que recibamos por argumento.
   for (var i = 0; i < numeros.length; i++){
     suma = suma + numeros[i]; // aqui a suma la vamos modificando y quiero que sea igual a suma mas numeros [i]
-  }
+  }                           // tambien se puede poner "suma += numeros [i];" que es lo mismo que suma = suma + numeros[i]
   return suma;
 
 }
@@ -129,8 +129,8 @@ function numeroMasGrande(numeros) {
   // Devuelve el número más grande
   // Tu código:
   
-  var mayor = 0; //variable auxiliar que inicia en 0.
-  for (var index = 0; index < numeros.length; index ++){
+  var mayor = 0; //variable auxiliar que inicia en 0, por que asumo que el n mas grande esta en la posicion 0.
+  for (var index = 1; index < numeros.length; index ++){ // inicio en 1 por que ya esta el 0 en mayor.
      if(numeros[index] > mayor){  //si numeros i es mayor que mayor, entonces
        mayor = numeros[index]  // numeros i pasa a ser mayor y se sale del for y se retorna mayor.
      }
@@ -149,7 +149,7 @@ function multiplicarArgumentos() {
     return 0;
   }
   for(var i = 0; i < arguments.length; i++){
-    total = total * arguments[i];
+    total = total * arguments[i];   // esto se puede escribir asi tambien "total *= arguments[i];"
   }
    return total;
 }
@@ -162,12 +162,10 @@ function cuentoElementos(arreglo){
   var mayorQue18 = 0;
   for(var i = 0; i < arreglo.length; i++){
     if(arreglo[i] > 18){
-      mayorQue18 = mayorQue18 + 1     // ver por que pone mas 1
-    }
+      mayorQue18 = mayorQue18 + 1     // el + 1 es por que estamos contando elementos
+    } // tambien se puede poner "mayorQue18 += 1" o "mayorQue18++; este ultimo es como incrementa.
   }
   return mayorQue18;
-
-
 }
 
 
@@ -187,8 +185,9 @@ function diaDeLaSemana(numeroDeDia) {
   
   if(numeroDeDia === 1 || numeroDeDia === 7){
     return "Es fin de semana";
-  }
+  } else {
   return "Es dia Laboral";
+  }
 } 
 
 
@@ -221,6 +220,9 @@ function todosIguales(arreglo) {
     }
     return true;
 } 
+
+
+
 
 
 function mesesDelAño(array) {
@@ -263,28 +265,27 @@ function mayorACien(array) {
 
 function breakStatement(numero) {
   //Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
-  //Guardar cada nuevo valor en un array. 
+  //Guardar cada nuevo valor en un array. // arrGurdaNuevoValor
   //Devolver el array
   //Si en algún momento el valor de la suma y la cantidad de iteraciones coinciden, debe interrumpirse la ejecución y 
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
-
-  var nuevoArray = []
-  numeroAumentadoenDos = numero
-
-  for (var i = 0; i <= 10; i++ ){
-    numeroAumentadoenDos = numeroAumentadoenDos + 2;
-    if(numeroAumentadoenDos === i){
-      break;
+  
+  var arrGuardaNuevoValor = []
+  var suma = numero
+  for (var i = 0; i < 10; i++){          // i < 10 permite iterar 10 veces.
+    suma += 2 // esto es lo mismo que poner  suma = suma + 20
+    if(suma === i) break
+    else{
+      arrGuardaNuevoValor.push(suma);
     }
-    nuevoArray.push(numeroAumentadoenDos)
   }
-
-  if(i === 10 ) return nuevoArray;
-
-  return "Se interrumpió la ejecución";
-
+  if(i < 10){
+    return "Se interrumpió la ejecución";
+  } else {
+    return arrGuardaNuevoValor;
+  }
 }
 
 
@@ -295,6 +296,18 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
+
+  var array = [];
+  var suma = numero;
+
+  for (var i = 0; i < 10; i++){
+    if (i === 5) continue; // Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
+    else {
+      suma += 2;
+      array.push(suma);
+    }
+  }
+  return array;  
 }
 
 
