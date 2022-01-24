@@ -6,6 +6,14 @@ function crearGato(nombre, edad) {
   // Agrega un método (funcion) llamado "meow" que devuelva el string "Meow!"
   // Devuelve el objeto
   // Tu código:
+   var nuevoObjeto = { 
+      nombre: nombre,    /// muy importante aqui los valores son los argumentos que pasan a la funcion no llevan tilde.
+      edad: edad,
+      meow: function(){
+        return "Meow!"; 
+      }
+   }
+   return nuevoObjeto;
 }
 
 
@@ -14,6 +22,8 @@ function agregarPropiedad(objeto, property) {
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
+  objeto[property]= null;   // como recibo como parametro un string, no puedo usar la sintaxis del punto (dot notacion)
+  return objeto;
 }
 
 function invocarMetodo(objeto, metodo) {
@@ -21,12 +31,18 @@ function invocarMetodo(objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
-}
+  objeto[metodo](); // como en el anterior metodo es una cadena-string, no puedo usar dot notacion, entonces uso braket notacion
+}                   // se invoca con ()
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
+
+  var resultado = objetoMisterioso.numeroMisterioso*5; // creo esta variable auxilial para luego devolver.
+  return resultado;
+
+  // tambien esta bien asi: return objetoMisterioso.numeroMisterioso * 5;
 
 }
 
@@ -35,6 +51,9 @@ function eliminarPropiedad(objeto, unaPropiedad) {
   // tip: tenes que usar bracket notation
   // Devuelve el objeto
   // Tu código:
+
+  delete objeto[unaPropiedad];
+  return objeto;
 }
 
 function nuevoUsuario(nombre, email, password) {
@@ -42,12 +61,24 @@ function nuevoUsuario(nombre, email, password) {
   // Devuelve el objeto
   // Tu código:
 
+  nuevoObjetoUsuario = {
+    nombre: nombre,
+    email: email,
+    password: password,
+  }
+  return nuevoObjetoUsuario;
+
 }
 
 function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
+  if(usuario.email){
+    return true;
+  } else{
+    return false;
+  }
 }
 
 
@@ -57,6 +88,12 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
+
+  if(objeto[propiedad]){
+    return true;
+  }else{
+    return false;
+  }
 }
 
 function verificarPassword(usuario, password) {
@@ -64,12 +101,23 @@ function verificarPassword(usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:
+  // if(usuario["password"] === password){     // con la braket natation estoy accediendo a la property "password" del objeto usuario.
+  //   return true;
+  // }else{
+  //   return false;
+  // }
+  if(usuario.password === password){       //tambien puedo usar dot notation para acceder a property.
+      return true;
+    }else{
+      return false;
+    }
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
   // Devuelve el objeto
   // Tu código:
+
 }
 
 function agregarAmigo(usuario, nuevoAmigo) {
