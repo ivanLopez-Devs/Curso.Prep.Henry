@@ -117,6 +117,14 @@ function actualizarPassword(usuario, nuevaPassword) {
   // Reemplaza la contraseña existente en el objeto "usuario" con el valor de "nuevagPassword"
   // Devuelve el objeto
   // Tu código:
+  
+  usuario.password = nuevaPassword;
+  return usuario;
+
+  // en este caso accedo a la propiedad (property) "password" del objeto "usuario" con dotnotation "usuario.password", por ejemplo
+  // usuario = {
+  //     password: "holadonpepito"
+  // }
 
 }
 
@@ -125,6 +133,9 @@ function agregarAmigo(usuario, nuevoAmigo) {
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // // Tu código:
+
+  usuario.amigos.push(nuevoAmigo); // en este caso tambien accedo a la property "amigos" del objeto usuario, con dotnotation, y
+  return usuario;                 // como es un array utilizo el metodo push() para agregar al final el nuevo amigo.
 }
 
 function pasarUsuarioAPremium(usuarios) {
@@ -133,6 +144,11 @@ function pasarUsuarioAPremium(usuarios) {
   // Define cada propiedad "esPremium" de cada objeto como "true"
   // Devuelve el array de usuarios
   // Tu código:
+  
+  for(var i = 0; i < usuarios.length; i++){
+    usuarios[i].esPremium = true;           // ususarios[i] permite acceder a cada possicion del array y con dotnotaction "usuario[i].esPremium"a la property 
+  }                                         // que quiero definir como true.
+  return usuarios;
 }
 
 function sumarLikesDeUsuario(usuario) {
@@ -142,7 +158,15 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
-}
+
+  var totalLikes = 0;
+  for(var i = 0; i < usuario.posts.length; i++){    // se coloca asi usuario.post.length por que quiero iterar sobre post.
+    totalLikes = totalLikes + usuario.posts[i].likes;  // aqui se suma en totalLikes la iteracion de cada likes en cada post.          
+  }                                         
+  return totalLikes;
+
+  // usuario.post[i].likes  aqui estoy diciendo, entra a ususario, despues entra a post y entra al primer pos [i] osea cero
+} // entra al primer post y de alli a like.
 
 function agregarMetodoCalculoDescuento(producto) {
   // Agregar un método (función) al objeto "producto" llamado "calcularPrecioDescuento"
@@ -155,6 +179,11 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
 
+    producto.calcularPrecioDescuento = function() {
+
+      return producto.precio - (producto.precio * producto.porcentajeDeDescuento);
+    }
+    return producto;
 }
 
 // No modificar nada debajo de esta línea
